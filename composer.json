@@ -28,6 +28,15 @@
         "pablodalloglio/ole": "dev-master",
         "pablodalloglio/spreadsheet_excel_writer": "dev-master",
         "dompdf/dompdf": "^1.0",
-        "nikic/fast-route": "^1.3"
+        "nikic/fast-route": "^1.3",
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "require-dev": {
+        "pestphp/pest": "^1.21"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     }
 }

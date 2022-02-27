@@ -1,4 +1,9 @@
 <?php
+
+use Adianti\Core\AdiantiCoreApplication;
+use Adianti\Core\AdiantiTemplateParser;
+use Adianti\Registry\TSession;
+
 require_once 'init.php';
 $theme  = $ini['general']['theme'];
 $class  = isset($_REQUEST['class']) ? $_REQUEST['class'] : '';
@@ -6,7 +11,7 @@ $public = in_array($class, $ini['permission']['public_classes']);
 
 //AdiantiCoreApplication::setRouter(array('AdiantiRouteTranslator', 'translate'));
 
-new TSession;
+new TSession();
 ApplicationTranslator::setLanguage( TSession::getValue('user_language'), true );
 
 if ( TSession::getValue('logged') )
