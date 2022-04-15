@@ -42,12 +42,12 @@ class SystemRequestLogService
         $object->session_id = session_id();
         $object->login = TSession::getValue('login');
         $object->access_ip = (PHP_SAPI == 'cli') ? '127.0.0.1' : ( isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null );
-        $object->class_name = $request['class'];
+        $object->class_name = (isset($request['class'])) ? $request['class'] : null;
         $object->http_host = (PHP_SAPI == 'cli') ? 'cli' : $_SERVER['HTTP_HOST'];
         $object->server_port = (PHP_SAPI == 'cli') ? '' : $_SERVER['SERVER_PORT'];
         $object->request_uri = (PHP_SAPI == 'cli') ? 'cmd.php' : $_SERVER['REQUEST_URI'];
         $object->request_method = (PHP_SAPI == 'cli') ? 'CLI' : $_SERVER['REQUEST_METHOD'];
-        $object->query_string = (PHP_SAPI == 'cli') ? http_build_query($request) : $_SERVER['QUERY_STRING'];
+        $object->query_string = (PHP_SAPI == 'cli') ? http_build_query($request) : ( isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : null );
         
         if (PHP_SAPI !== 'cli')
         {
