@@ -1,2 +1,2 @@
-# framework
-PHP Framework
+# PHP Framework Template
+PHP Framework Template
